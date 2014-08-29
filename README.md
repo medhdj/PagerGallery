@@ -1,7 +1,7 @@
 # PagerGallery
 A simple and efficient replacement for The Gallery widget in Android.
 PagerGallery is based on a gist developped by @devunwired, and adding to it, basic interactivity(swip,click,...) to be used as a Gallery widget
-![Screenshot]()
+![Screenshot](https://raw.githubusercontent.com/medhdj/PagerGallery/master/pg_screenshot.png)
 
 # Usage
 For a working implementation of PagerGAllery take a look at **PagerGallerySample**
