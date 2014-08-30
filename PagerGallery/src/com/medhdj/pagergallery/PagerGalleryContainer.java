@@ -101,8 +101,9 @@ public class PagerGalleryContainer extends FrameLayout implements ViewPager.OnPa
 
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
+		int marginClick = 10;
 		// We capture any touches not already handled by the ViewPager
-		// to implement scrolling from a touch outside the pager bounds.
+		// to implement scrolling from a touch outside the pager bounds.		
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			mInitialTouch.x = (int) ev.getX();
@@ -111,7 +112,10 @@ public class PagerGalleryContainer extends FrameLayout implements ViewPager.OnPa
 		case MotionEvent.ACTION_UP:
 			// capturing the click on the PagerGalleryContainer to perform
 			// selection of an item in the PagerGallery
-			if ((int) ev.getX() == mInitialTouch.x && (int) ev.getY() == mInitialTouch.y) {
+			if ((int) ev.getX() >= (mInitialTouch.x - marginClick)
+					&& (int) ev.getX() <= (mInitialTouch.x + marginClick)
+					&& (int) ev.getY() >= mInitialTouch.y - marginClick
+					&& (int) ev.getY() <= mInitialTouch.y + marginClick) {
 				float pageWidth = mPager.getChildAt(0).getWidth();
 				float pageMargin = mPager.getPageMargin();
 				int jump = Math.round((ev.getX() - mCenter.x) / (pageWidth + pageMargin));
